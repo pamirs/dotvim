@@ -3,6 +3,7 @@ execute pathogen#infect()
 set nocp
 filetype plugin on
 
+
 " VIM Configuration File
 " Description: Optimized for C/C++ development, but useful also for other things.
 " Author: Gerhard Gappmeier
@@ -27,7 +28,10 @@ set textwidth=120
 " turn syntax highlighting on
 set t_Co=256
 syntax on
-" colorscheme wombat256
+if (has('gui_running') || has('gui_macvim')) 
+set lines=50 columns=100
+colorscheme desert256 
+endif
 " turn line numbers on
 set number
 " highlight matching braces
@@ -60,6 +64,10 @@ map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 map <F6> :Dox<CR>
 " build using makeprg with <F7>
 map <F7> :make<CR>
+"match whitespace
+map <F8> :match ExtraWhitespace /\s\+$/
+"delete whitespace
+map <F9> :%s/\s\+$//
 " build using makeprg with <S-F7>
 map <S-F7> :make clean all<CR>
 " goto definition with F12
