@@ -8,6 +8,16 @@ filetype plugin on
 " Author: Gerhard Gappmeier
 "
 
+" - font type and size setting.
+if has('win32')
+"    set guifont=Consolas:h12   " Win32.
+elseif has('gui_macvim')
+    set guifont=Monaco:h14     " OSX.
+else
+    set guifont=Monospace\ 12  " Linux.
+endif
+
+
 " set UTF-8 encoding
 set enc=utf-8
 set fenc=utf-8
@@ -27,7 +37,7 @@ set textwidth=120
 " turn syntax highlighting on
 set t_Co=256
 syntax on
-" colorscheme wombat256
+colorscheme wombat256
 " turn line numbers on
 set number
 " highlight matching braces
