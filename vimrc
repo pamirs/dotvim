@@ -1,13 +1,12 @@
+if has('gui_macvim')
+    set runtimepath+=~/macpathogen
+endif
+
 execute pathogen#infect()
 
 set nocp
 filetype plugin on
 
-
-" VIM Configuration File
-" Description: Optimized for C/C++ development, but useful also for other things.
-" Author: Gerhard Gappmeier
-"
 
 " - font type and size setting.
 if has('win32')
@@ -18,6 +17,15 @@ else
     set guifont=Monospace\ 12  " Linux.
 endif
 
+" NERDTree Configuration
+map <C-n> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize = 60
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" VIM Configuration File
+" Description: Optimized for C/C++ development, but useful also for other things.
+" Author: Gerhard Gappmeier
+"
 
 " set UTF-8 encoding
 set enc=utf-8
@@ -40,8 +48,8 @@ set t_Co=256
 syntax on
 if (has('gui_running') || has('gui_macvim')) 
 set lines=50 columns=100
-colorscheme desert256 
 endif
+colorscheme desert256 
 " turn line numbers on
 set number
 " highlight matching braces
@@ -58,7 +66,7 @@ set tags+=~/vimfiles/tags/sdl
 set tags+=~/vimfiles/tags/qt4
 
 " Install DoxygenToolkit from http://www.vim.org/scripts/script.php?script_id=987
-let g:DoxygenToolkit_authorName="John Doe <john@doe.com>"
+let g:DoxygenToolkit_authorName="Pamir Saatcioglu<pamirsa@yahoo.com>"
 
 " Enhanced keyboard mappings
 "
