@@ -7,6 +7,14 @@ execute pathogen#infect()
 set nocp
 filetype plugin on
 
+"Laptops with crappy Esc button
+imap jj <Esc>
+
+"set modifiable on (creating new files)
+set autochdir 
+
+"Recursive find
+set path+=**
 
 " - font type and size setting.
 if has('win32')
