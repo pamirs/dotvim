@@ -14,7 +14,11 @@ imap jj <Esc>
 set autochdir 
 
 "Recursive find
-set path+=**
+if has('win32')
+    set path+=.\**
+else
+    set path+=$PWD/**
+endif
 
 " - font type and size setting.
 if has('win32')
