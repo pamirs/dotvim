@@ -1,5 +1,7 @@
 if has('gui_macvim')
     set runtimepath+=~/macpathogen
+elseif has('win32')
+    set runtimepath+=~/winpathogen
 endif
 
 execute pathogen#infect()
@@ -23,6 +25,7 @@ endif
 " - font type and size setting.
 if has('win32')
 "    set guifont=Consolas:h12   " Win32.
+"
 elseif has('gui_macvim')
     set guifont=Monaco:h14     " OSX.
 else
@@ -61,7 +64,11 @@ syntax on
 if (has('gui_running') || has('gui_macvim')) 
 set lines=50 columns=100
 endif
+if (!has('gui_running') && has('win32')) 
+colorscheme desert 
+else
 colorscheme desert256 
+endif
 " turn line numbers on
 set number
 " highlight matching braces
