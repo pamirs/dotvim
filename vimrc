@@ -9,6 +9,9 @@ execute pathogen#infect()
 set nocp
 filetype plugin on
 
+"localvimrc settings
+let g:localvimrc_sandbox = 0
+let g:localvimrc_ask = 0
 
 "Laptops with crappy Esc button
 imap jj <Esc>
@@ -80,11 +83,11 @@ set comments=sl:/*,mb:\ *,elx:\ */
 " Install OmniCppComplete like described on http://vim.wikia.com/wiki/C++_code_completion
 " This offers intelligent C++ completion when typing ‘.’ ‘->’ or <C-o>
 " Load standard tag files
-"set tags+=~/vimfiles/tags/cpp
-"set tags+=~/vimfiles/tags/gl
-"set tags+=~/vimfiles/tags/sdl
-"set tags+=~/vimfiles/tags/qt4
 set tags=./tags;
+set tags+=~/vimfiles/tags/cpp
+set tags+=~/vimfiles/tags/gl
+set tags+=~/vimfiles/tags/sdl
+set tags+=~/vimfiles/tags/qt4
 
 " Install DoxygenToolkit from http://www.vim.org/scripts/script.php?script_id=987
 let g:DoxygenToolkit_authorName="Pamir Saatcioglu<pamirsa@yahoo.com>"
